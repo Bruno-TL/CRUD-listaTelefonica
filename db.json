@@ -1,0 +1,16 @@
+{
+    "listaTelefocina":[
+        {
+            "id":1,
+            "nome":"Klebinho",
+            "numero":"998658956",
+            "cidade":"Cigana"
+        },
+        {
+            "id":2,
+            "nome":"Jorge",
+            "numero":"965324561",
+            "cidade":"Cigana"
+        }
+    ]
+}

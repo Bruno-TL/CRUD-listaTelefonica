@@ -23,7 +23,10 @@ function cadastrar(){
             'Content-Type' : 'application/json'
         }
     })
-    .then( response => response.json()).then( () => atualizarLista());
+    .then( response => response.json()).then( () => atualizarLista())
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 
     //Resetando o formulário
     formCadastar.reset();
@@ -64,6 +67,9 @@ function atualizarLista() {
                 `
             })
         })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     
 }
 

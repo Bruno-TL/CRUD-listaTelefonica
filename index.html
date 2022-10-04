@@ -11,22 +11,22 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="container w-100" >
-    <header class="row d-flex justify-content-around w-100 p-2"  >
+<body class="container ">
+    <header class="row d-flex justify-content-around w-100 p-2 "  >
         <h1 class="col-6">Lista Telefonica</h1>
         <img class="col-6 img__header" src="src/img.svg" alt="Imagem de um livro(lista telefônica) ">
         
     </header>
 
-    <table class="table table-dark table-striped table-hover">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th>Cidade</th>
-                <th class="text-end">
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <table class="table table-striped table-hover">
+        <thead class="border border-3">
+            <tr class="">
+                <th >ID</th>
+                <th >Nome</th>
+                <th >Telefone</th>
+                <th >Cidade</th>
+                <th class="text-end ">
+                    <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
                         New Ser-humano
                     </button>
                 </th>
@@ -35,34 +35,56 @@
         <tbody id="tabela_tbody"></tbody>
     </table>
 
+
+    <div class="offcanvas offcanvas-end text-bg-info" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Edite a lista</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body ">
+            <form id="form_edit" onsubmit="editar()">
+                <input id="input_editar_id" type="hidden">
+                <input id="input_editar_nome" type="text" class="form-control mb-3" placeholder="Nome" minlength="2" required >
+                <input id="input_editar_numero" type="text" class="form-control mb-3" placeholder="Telefone" minlength="9" required >
+                <input id="input_editar_cidade" type="text" class="form-control mb-3" placeholder="Cidade" minlength="2" required >
+                <button class="btn btn-outline-primary">Editar</button>
+            </form>
+        </div>
+    </div>
     
     <!--HTML do form de cadastro-->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas offcanvas-start text-bg-primary" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Nova Pessoa</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
 
-        <form id="formCadastar" onsubmit="cadastar()">
+        <form id="formCadastar" onsubmit="cadastrar()">
+
             <div class="input-group input-group-sm mb-3">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Nome" required>
+                <input id="input_nome" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Nome" minlength="2" required>
             </div>
+
             <div class="input-group input-group-sm mb-3">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Telefone" required>
+                <input id="input_numero" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Telefone" maxlength="9" minlength="9" required>
             </div>
+
             <div class="input-group input-group-sm mb-3">
-                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cidade" required>
+                <input id="input_cidade" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cidade" minlength="3" required>
             </div>
-            <button type="submit" class="btn btn-info btn-outline-primary">
+
+            <button type="submit" class="btn btn-outline-dark">
                 Cadastrar !!
             </button>
         </form>
       </div>
-    
 
+    <!-- HTML da parte de editar uma linha lista  -->
+    
 
     <!-- JavaScript Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 </html>

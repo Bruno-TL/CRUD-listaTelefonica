@@ -2,15 +2,9 @@
   "listaTelefonica": [
     {
       "nome": "Bruno",
-      "numero": "985698523",
+      "numero": "985698598",
       "cidade": "Fortaleza",
       "id": 1
-    },
-    {
-      "nome": "João",
-      "numero": "987452541",
-      "cidade": "Fortaleza",
-      "id": 2
     },
     {
       "nome": "Luke",
@@ -19,10 +13,16 @@
       "id": 3
     },
     {
-      "nome": "Thali",
+      "nome": "Thalia",
       "numero": "978452563",
       "cidade": "Caucaia",
       "id": 4
+    },
+    {
+      "nome": "Kleiton",
+      "numero": "985698523",
+      "cidade": "juazeiro",
+      "id": 5
     }
   ]
 }

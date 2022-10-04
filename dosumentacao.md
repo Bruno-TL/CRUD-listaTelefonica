@@ -16,6 +16,6 @@
 
 # Será utilizado Bootstrap para estilização da página.
 
-# No arquivo index.js que será usado para criar a lógica do CRUD estará com as funções documentadas logo acima da mesma.
+# No arquivo index.js que será usado para criar a lógica do CRUD estará com as funções documentadas logo acima de cada função.
 
 # Caso houver alguma dúvida, falar com o nosso Tech-Lead : T.Bruno. 

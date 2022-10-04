@@ -9,26 +9,34 @@
     <!-- CSS do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <!-- css -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="container ">
     <header class="row d-flex justify-content-around w-100 p-2 "  >
-        <h1 class="col-6">Lista Telefonica</h1>
+        <h1 class="col-6">Lista Telefônica</h1>
         <img class="col-6 img__header" src="src/img.svg" alt="Imagem de um livro(lista telefônica) ">
         
     </header>
 
-    <table class="table table-striped table-hover">
-        <thead class="border border-3">
-            <tr class="">
+    <table class="table table-dark table-striped table-hover">
+        <thead class="border border-3 w-100">
+            <tr>
                 <th >ID</th>
                 <th >Nome</th>
                 <th >Telefone</th>
                 <th >Cidade</th>
-                <th class="text-end ">
-                    <button class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                        New Ser-humano
+                <th class="text-center ">
+                    <button class="btn btn-info d-flex align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                        Novo contato <span class="material-icons">add</span>
                     </button>
+                </th>
+                <th>
+                    <input onkeyup="buscar()" id="input_busca" type="text" class="form-control" placeholder="Busca rápida por NOME  ou CIDADE">
                 </th>
             </tr>
         </thead>
@@ -47,7 +55,8 @@
                 <input id="input_editar_nome" type="text" class="form-control mb-3" placeholder="Nome" minlength="2" required >
                 <input id="input_editar_numero" type="text" class="form-control mb-3" placeholder="Telefone" minlength="9" required >
                 <input id="input_editar_cidade" type="text" class="form-control mb-3" placeholder="Cidade" minlength="2" required >
-                <button class="btn btn-outline-primary">Editar</button>
+                <button class="btn btn-outline-dark">Editar</button>
+                <button class="btn btn-outline-dark" data-bs-dismiss="offcanvas">Cancelar</button>
             </form>
         </div>
     </div>
@@ -60,26 +69,27 @@
         </div>
         <div class="offcanvas-body">
 
-        <form id="formCadastar" onsubmit="cadastrar()">
+            <form id="formCadastar" onsubmit="cadastrar()">
 
-            <div class="input-group input-group-sm mb-3">
-                <input id="input_nome" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Nome" minlength="2" required>
-            </div>
+                <div class="input-group input-group-sm mb-3">
+                    <input id="input_nome" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Nome" minlength="2" required>
+                </div>
 
-            <div class="input-group input-group-sm mb-3">
-                <input id="input_numero" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Telefone" maxlength="9" minlength="9" required>
-            </div>
+                <div class="input-group input-group-sm mb-3">
+                    <input id="input_numero" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Telefone" maxlength="9" minlength="9" required>
+                </div>
 
-            <div class="input-group input-group-sm mb-3">
-                <input id="input_cidade" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cidade" minlength="3" required>
-            </div>
+                <div class="input-group input-group-sm mb-3">
+                    <input id="input_cidade" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Cidade" minlength="3" required>
+                </div>
 
-            <button type="submit" class="btn btn-outline-dark">
-                Cadastrar !!
-            </button>
-        </form>
-      </div>
-
+                <button type="submit" class="btn btn-outline-dark">
+                    Cadastrar !!
+                </button>
+                <button class="btn btn-outline-dark" data-bs-dismiss="offcanvas" >Cancelar</button>
+            </form>
+        </div>
+    </div>
     <!-- HTML da parte de editar uma linha lista  -->
     
 

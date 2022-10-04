@@ -49,8 +49,16 @@ function atualizarLista() {
                     <td>${cadaItem.nome}</td>
                     <td>${cadaItem.numero}</td>
                     <td>${cadaItem.cidade}</td>
-                    <td class="text-end"><button class="btn btn-outline-primary" onclick="buscandoID(${cadaItem.id})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Editar</button></td>
-                    <td onclick="excluir(${cadaItem.id})"><button class="btn btn-outline-danger">Excluir</button></td>
+                    <td class="d-flex flex-row-reverse">
+                        <button class="btn btn-outline-primary d-flex align-items-center" onclick="buscandoID(${cadaItem.id})" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                            Editar<span class="material-icons">bolt</span>
+                        </button>
+                    </td>
+                    <td onclick="excluir(${cadaItem.id})">
+                        <button class="btn btn-outline-danger d-flex align-items-center">
+                            Excluir<span class="material-icons">delete</span>
+                        </button>
+                    </td>
                     
                 </tr>
                 `
@@ -76,7 +84,7 @@ async function excluir(id) {
     atualizarLista();
 }
 
-///////////////////////////////// BUSCAR E EDITAR ///////////////////////////
+///////////////////////////////// BUSCAR-ID E EDITAR ///////////////////////////
 //Função que busca os dados separadamente a partir do id do item. 
 function buscandoID(id) {
     event.preventDefault();
@@ -90,7 +98,6 @@ function buscandoID(id) {
             input_editar_cidade.value = res.cidade;
         })
 }
-
 //Função responsável de editar os dados que foi capiturados atráves dos inputs, iditando a linha da lista com o ID expecífico
 function editar() {
     event.preventDefault();
@@ -120,4 +127,35 @@ function editar() {
     //Lógica usada para fechar offcanvas ao click em cadastar
     document.location.reload(true);
 
+    
+
+}
+
+//////////////////////FAZENDO UMA BUSCA NOS CONTATOS E FILTRANDO ///////////////////
+// Função responsável por fazer a busca pelo o nome e cidade que contém na lista
+function buscar() {
+    //colocando a string em letras minúsculas
+    let palavraDigitada = input_busca.value.toLowerCase();
+
+    //Pegando os elementos da tag tr
+    let linhas = tabela_tbody.getElementsByTagName('tr');
+    
+    for(let posicao in linhas){
+        if(isNaN(posicao)){
+            continue;
+        }
+        //Fazendo com que a palavra digitada seja comparada somente com a coluna de Nome e Cidade
+        let colunaNome = linhas[posicao].children[1].innerText.toLowerCase();
+        let colunaCidade = linhas[posicao].children[3].innerText.toLowerCase();
+
+        //Colocando as duas variáveis em uma
+        let tr = colunaNome + colunaCidade;
+        
+        //Criando a condição de que se a letra digitada conter na tr o ela vai aparecer na tela se no caso não conter o display dela irá receber o valor 'none'
+        if(tr.includes(palavraDigitada)){
+            linhas[posicao].style.display =''
+        }else{
+            linhas[posicao].style.display = 'none';
+        }
+    }
 }
